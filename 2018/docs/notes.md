@@ -55,3 +55,13 @@ i started to do this one right after Day 3 Part 1, the same night it came out, b
 kind of yucky. tried to keep it pretty functional again.
 
 [findLoneClaim](https://github.com/chrisman/advent-of-code/blob/5e79b31037ab2234426edb0ef4b737ba7ac095b7/2018/day/0302.js#L19) is pretty gnarly. I hate writing stuff that relies on `continue` and `break`, but I find it much more pleasant using function labels. it's a little more clear about where you want control to resume. on the other hand, it's almost like using a GOTO statement in that it kind execution kind of jumps around somewhat unpredictably, and that's not cool.
+
+## Day 4 Part 1
+
+Whew, boy. This one took me an embarrasingly long time.
+
+because of a silly mistake, my solution was working on the test data by a fluke and it (correctly) wasn't working on the real data. took me a while to track down the bug and realize that I was comparing arrays and not their length in the reduce function in `sleepiestGuard` 😞
+
+got some pretty fun recursion and list eating going on in `minutesPerGuard`. got a little goofy toward the end with function in/out in order to keep my compose chain rolling. it works pretty well but i feel like in real life the functions wouldn't be as isolated/independent as I would want them to be. that is, if i came back in a couple weeks to look at this code, I'd have no idea what `data` is in the input. solutions to that problem include a) JSDocs, b) lots of data validation in the function, c) unit tests?
+
+i feel motivated by watching my stats page. day 1 has ~40k finishers, and it keeps going down by 10k from there: day 2 has ~30, day 3 has ~20, and day 4 has ~10.
