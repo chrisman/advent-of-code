@@ -80,3 +80,4 @@ step 3: \o/
 
 this was pretty easy since most of the heavy lifting was done in day-4-part-1. tightened up the initial parseInput portion of the code. not much else to report on here.
 
+edit: forgot to mention that there are some potential edge cases here that I didn't code for including what to do if there are multiple Top Sleepiest Minutes per guard. Or between guards. luckily I didn't need to worry about that 😌
