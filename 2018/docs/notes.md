@@ -58,6 +58,8 @@ kind of yucky. tried to keep it pretty functional again.
 
 ## Day 4 Part 1
 
+https://github.com/chrisman/advent-of-code/blob/9a13122c14bdbbfc1962225c75cc6509142f5b20/2018/day/0401.js#L1
+
 Whew, boy. This one took me an embarrasingly long time.
 
 because of a silly mistake, my solution was working on the test data by a fluke and it (correctly) wasn't working on the real data. took me a while to track down the bug and realize that I was comparing arrays and not their length in the reduce function in `sleepiestGuard` 😞
@@ -65,3 +67,16 @@ because of a silly mistake, my solution was working on the test data by a fluke 
 got some pretty fun recursion and list eating going on in `minutesPerGuard`. got a little goofy toward the end with function in/out in order to keep my compose chain rolling. it works pretty well but i feel like in real life the functions wouldn't be as isolated/independent as I would want them to be. that is, if i came back in a couple weeks to look at this code, I'd have no idea what `data` is in the input. solutions to that problem include a) JSDocs, b) lots of data validation in the function, c) unit tests?
 
 i feel motivated by watching my stats page. day 1 has ~40k finishers, and it keeps going down by 10k from there: day 2 has ~30, day 3 has ~20, and day 4 has ~10.
+
+## Day 4 Part 2
+
+https://github.com/chrisman/advent-of-code/blob/9a13122c14bdbbfc1962225c75cc6509142f5b20/2018/day/0402.js#L1
+
+step 1: copy/paste day-4-part-1
+
+step 2: add a couple extra parsing functions
+
+step 3: \o/
+
+this was pretty easy since most of the heavy lifting was done in day-4-part-1. tightened up the initial parseInput portion of the code. not much else to report on here.
+
