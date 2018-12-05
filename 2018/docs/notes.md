@@ -81,3 +81,34 @@ step 3: \o/
 this was pretty easy since most of the heavy lifting was done in day-4-part-1. tightened up the initial parseInput portion of the code. not much else to report on here.
 
 edit: forgot to mention that there are some potential edge cases here that I didn't code for including what to do if there are multiple Top Sleepiest Minutes per guard. Or between guards. luckily I didn't need to worry about that 😌
+
+## Day 5 Part 1
+
+https://github.com/chrisman/advent-of-code/blob/00e643742a5db81e3509fb6034af1f3c80d495b9/2018/day/0501.js
+
+ugh this was stupid
+
+so i really wanted to write a recursive function to handle this but the string was way too long and i kept blowing my stack
+
+here's the first attempt at recursion: https://github.com/chrisman/advent-of-code/blob/b663daa0410e38921cb9a799640defb78d3f1479/2018/day/0501.js#L14
+
+worked great for the smaller test string but again when i tried it with the longer string, stack overflow.
+
+i rewrote it again to be sure it was in tail-call form, but it didn't work either: https://github.com/chrisman/advent-of-code/blob/2a2b4d29adc9993ac834d295d127ea49fc3a9aa6/2018/day/0501.js#L14
+
+maybe i'm misunderstanding what it means to write tail-call optimization. or maybe node just doesn't support it. i could have sworn it was supposed to be in the ES6 definition. and i thought i rembemered having played with it before with a --harmony flag perhaps. i can't really find much about it online either, just blog posts from 2014 - 2016. the impression i get is that ES6 defines it, and it's sparsely implemented, but not by V8.
+
+i even tried to write a recursion-eating [trampoline](https://stackoverflow.com/questions/25228871/how-to-understand-trampoline-in-javascript#27704484) but didn't get very far.
+
+oh well. it ultimately felt like a whole lot of work for no sake but ego's sake so i wrote a stupid `do...while` loop. which is probably for the best anyway. recursion is cool but it's inefficient and likely to crash when you get into large loops like this puzzle does.
+
+### 🚥 tests
+
+i wrote a very dumb [test thingie](https://github.com/chrisman/advent-of-code/blob/476581f069e0c929771f357e8078853350a0534a/2018/test/test.js) which implements pretty much the one thing I ever want from a unit test, and that one thing is the following things:
+
+1. tell me the name of the unit of code being tested
+2. tell me, given a context, what it should do
+3. tell me what was passed to it (how to recreate the context) and what was returned
+4. does reality match expectations?
+
+anyway that means that my puzzle solutions don't return anything if run on their own. they will from now on act like proper modules that need to be required and passed data to.
