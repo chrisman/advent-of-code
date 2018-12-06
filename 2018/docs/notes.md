@@ -112,3 +112,7 @@ i wrote a very dumb [test thingie](https://github.com/chrisman/advent-of-code/bl
 4. does reality match expectations?
 
 anyway that means that my puzzle solutions don't return anything if run on their own. they will from now on act like proper modules that need to be required and passed data to.
+
+## Day 5 Part 2
+
+same as yesterday: part 2 is copy/paste part 1 with a few changes

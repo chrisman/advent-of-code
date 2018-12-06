@@ -1,5 +1,5 @@
-const describe = require('./test')
-const head = require('../utils').head
+const describe = require('../tap')
+const head = require('../../utils').head
 
 describe('head()', assert => {
   assert({

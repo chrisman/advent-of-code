@@ -1,12 +1,12 @@
-const describe = require('./test')
-const data = require('../data/05.data')
+const describe = require('../tap')
+const data = require('../../data/05.data')
 const {
   getAnswer,
   areSameType,
   areOppositePolarity,
   areDifferentCases,
   main,
-} = require('../day/0501')
+} = require('../../day/0501')
 
 describe('main()', assert => {
   assert({
