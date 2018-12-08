@@ -46,6 +46,10 @@ I got all excited and did this one at midnight UTC-5, the minute it came out. I 
 
 people who have written video games, and especially entity collision libraries, probably laughed at this exercise.
 
+**edit:** here's a visualization of the data
+
+![](https://github.com/chrisman/advent-of-code/raw/master/2018/extra/0301-visualization/canvas.png)
+
 ## Day 3 Part 2
 
 https://github.com/chrisman/advent-of-code/blob/5e79b31037ab2234426edb0ef4b737ba7ac095b7/2018/day/0301.js#L1
@@ -116,3 +120,35 @@ anyway that means that my puzzle solutions don't return anything if run on their
 ## Day 5 Part 2
 
 same as yesterday: part 2 is copy/paste part 1 with a few changes
+
+## Day 6 Part 1
+
+I kept not ever having enough consecutive minutes to work on this long enough to build any kind of cadence or velocity and so it took me a long time and now I'm a day behind and my code is pretty dumb.
+
+Instead of settling into a rhythm and getting stuff done, I would come back to what I had written earlier and try to remember the direction I had been going and what I had been thinking about because that's the kind of thing I had set myself up for instead of leaving notes or tests behind as some kind of an indicator. and my fingers got stupid and started messing up syntax things so at one point I was doing programming mutters at my computer and said something like, _Why in the world is that happening? Did **math** stop working? is math **broken?**_
+
+Apparently I don't do programming mutters around Mel very often because she thought that was really funny and was like, _oh yeah didn't you hear? they canceled math. it's trump's fault. he doesn't understand math so he hates it and wants to take it away from everybody._ and I thought that was pretty funny but I didn't laugh because math was still broken. except later I discovered that math (thank god) was _not_ broken. the actual problem was that my fingers had gotten stupid and forgotten how to write fat arrow functions and so I was returning a whole function instead of resolving that function to a value.
+
+and that's what writing code is like sometimes
+
+---
+
+I remember reading at some point that there is a belief held by some data nerds that data should pretty much never be destroyed. there's no need to ever delete data from a database. just add new content with a new timestamp instead of overwriting old data on a POST. just kind of hide data somehow with a DELETE.
+
+the last time i tried to use an <abbr title="oriental relationship manager">ORM</abbr> with a JavaScript project, I used [bookshelf](https://bookshelfjs.org/) and it was an awful experience and also I used a plugin called *paranoia* that adhered to this principle by soft deleting data instead of actually deleting it.
+
+I'm reading a book on Lisp right now too which claims that when processing lists it is very common to not actually update a record in the list but to just add a new record to the list with the new data. because retrieving from the list will always just return the first matching record and the old record will just flounder at the back of the list, irretrievable and not hurting anybody. unless or until you very intentionally try to retrieve it. or hurt people with it.
+
+anyway, I don't know if there's a name for this practice/convention, or whether it's recognized as any kind of a good idea, but as I was passing data around from function to function here, I eventually kind of organically decided to continue to pass everything piece of data I created on through. eventually the signature of the return value got kind of long and a little unwieldly. I think it ended up being `[width, height, allPoints, allCenters, centersOfInfiniteAreas]`. or something like that. and it was just a list, an array. so there weren't any keys to describe the value or provide any context, so there was some mental overhead in remembering the data structure, and if I lost the shape of the data in my head I had to go back and look at the previous function in the chain to see what it returned. but lists are super easy to process. and at the very end, I needed width and height for something--the very first values I computed--and I was glad I had kept them and passed them down the entire composition. instead of, i guess, making them global variables. but whatever. the end result was a long long array full of data that is utterly meaningless out of context. but it worked.
+
+---
+
+this puzzle describes a [veronoi diagram](https://en.wikipedia.org/wiki/Voronoi_diagram) which, believe it or not, is one of my favorite things. I first saw one (I think) in a [p5.js](https://p5js.org/examples/) gallery back around 2015. p5 is a JavaScript port of Processing, which is a programming language for artists that became the model for the Arduino IDE.
+
+The veronoi diagram was visually very appealing to me, and the interactivity was very satisfying: when you moused over the diagram your cursor location became a new point in the diagram, and all the areas warped and shifted around you as you moved. reading about the diagram on wikipedia taught me about about euclidean vs taxicab distances.
+
+I would really like to go back and do a visualization of this data similar to how I did for day 3 part 1
+
+## Day 6 Part 2
+
+YET AGAIN let's copy/paste part 1 code and kind of massage it around a little bit, and that's how we do part 2.
