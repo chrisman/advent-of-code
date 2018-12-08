@@ -152,3 +152,16 @@ I would really like to go back and do a visualization of this data similar to ho
 ## Day 6 Part 2
 
 YET AGAIN let's copy/paste part 1 code and kind of massage it around a little bit, and that's how we do part 2.
+## Day 7 Part 1
+
+How to code
+
+step 1: take a guess at what the data structure looks like
+
+step 2: try doing stuff with that data
+
+step 3: repeat until done
+
+This looked really complicated at first pass but ended up not being so much.
+
+there's a library called [xregexp](https://github.com/slevithan/xregexp) (eXtended regular expressions) that implements a thing called free-spacing, which allows you to comment your regex and do other cool things. I would consider using it if I knew I was going to be writing perhaps more than one long regex. they are obtuse little things, difficult to document.
