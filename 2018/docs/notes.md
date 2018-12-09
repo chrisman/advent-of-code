@@ -152,6 +152,7 @@ I would really like to go back and do a visualization of this data similar to ho
 ## Day 6 Part 2
 
 YET AGAIN let's copy/paste part 1 code and kind of massage it around a little bit, and that's how we do part 2.
+
 ## Day 7 Part 1
 
 How to code
@@ -165,3 +166,9 @@ step 3: repeat until done
 This looked really complicated at first pass but ended up not being so much.
 
 there's a library called [xregexp](https://github.com/slevithan/xregexp) (eXtended regular expressions) that implements a thing called free-spacing, which allows you to comment your regex and do other cool things. I would consider using it if I knew I was going to be writing perhaps more than one long regex. they are obtuse little things, difficult to document.
+
+## Day 7 Part 2
+
+full disclosure: I kept getting really close and then gettng stuck, until it wasn't fun any more. So I stole Eric's solution and fussed around with it until I kinda understood it. I'll revisit this one later. Maybe.
+
+
