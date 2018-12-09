@@ -171,4 +171,14 @@ there's a library called [xregexp](https://github.com/slevithan/xregexp) (eXtend
 
 full disclosure: I kept getting really close and then gettng stuck, until it wasn't fun any more. So I stole Eric's solution and fussed around with it until I kinda understood it. I'll revisit this one later. Maybe.
 
+## Day 8 Part 1
 
+that's more like it. this one was fun.
+
+Implement a tree! 🌲
+
+but a friggin weird one. After I read the description of the data about four times, I didn't understand the data at all. And then I looked at the actual input data and saw it was nothing but a string of numbers, it was compeletely flat! And then I realized how it worked. The description could have been a little bit better about pointing out that all of the nodes are nested in a flat string.
+
+anyway. nodes and stuff 👍
+
+I've kind of stopped testing units. It's sort of a side effect of an iterative functional process. As I write really small functions and include them in the composition along the way, each individual unit/function is tested and integrated as it goes. Tests would continue to serve as good documentation and perhaps as a design tool. But I don't really need them as an inspection tool (a replacement for console logs and analysis) as I go along
