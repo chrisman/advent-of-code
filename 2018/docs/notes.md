@@ -182,3 +182,17 @@ but a friggin weird one. After I read the description of the data about four tim
 anyway. nodes and stuff 👍
 
 I've kind of stopped testing units. It's sort of a side effect of an iterative functional process. As I write really small functions and include them in the composition along the way, each individual unit/function is tested and integrated as it goes. Tests would continue to serve as good documentation and perhaps as a design tool. But I don't really need them as an inspection tool (a replacement for console logs and analysis) as I go along
+
+## Day 8 Part 2
+
+too many weird things with this one. like `shift`ing would work, but reassigning a `slice` wouldn't? i'd love to spend more time here to investigate, and maybe implement a proper tree structure, but i need to move on.
+
+## Day 9 Part 1
+
+Whoopty woo!
+
+## Day 9 Part 2
+
+Should have realized from part 1 that anytime you're describing a circle that can move clockwise and anti-clockwise, you probably want a doubly linked list
+
+from trees to DL lists. we're definitely in the data structures portion of the challenge
