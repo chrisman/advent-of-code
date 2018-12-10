@@ -7,6 +7,8 @@ const log = (label) => (x) => { console.log(`${label}:`, JSON.stringify(x)); ret
 const map = (fun) => (arr) => arr.map(fun);
 const num = (str) => parseInt(str, 10);
 const reduce = (fun, init) => (arr) => arr.reduce(fun, init);
+const split = (str) => (arr) => arr.split(str)
+const sum = (x, y) => x + y
 const tail = (arr) => arr.slice(1);
 const uniq = (cur, idx, arr) => arr.indexOf(cur) === idx
 
@@ -20,6 +22,8 @@ module.exports = {
   map,
   num,
   reduce,
+  split,
+  sum,
   tail,
   uniq,
 }
