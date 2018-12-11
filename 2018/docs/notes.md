@@ -196,3 +196,32 @@ Whoopty woo!
 Should have realized from part 1 that anytime you're describing a circle that can move clockwise and anti-clockwise, you probably want a doubly linked list
 
 from trees to DL lists. we're definitely in the data structures portion of the challenge
+
+## Day 10 Parts 1 and 2
+
+me, reading description of day 10 part 1: what, and I cannot stress this enough, the *actual* fuck
+
+I have to visually with my own eyes look at the output of every single loop? no way. can I screenshot and ocr the output of each loop instead? make a call to a google vision API or something?
+
+maybe I can test for a certain number of points with the same x value and consecutive y values (or vice versa) looking for, for example, the bar in a capital T. or H. or any letter with a bar.. that'd be easy if I knew the letter height. without knowing that, I'd have to guess and might get a lot of false positives. but perhaps looking at a lot of false positives and looking for a message will be easier than looking at *a lot a lot* of images.
+
+i don't want to deal with console scroll back. maybe i'll start by writing this for the browser where I have better scroll..
+
+update: btw I pretty much never write a regular expression without testing it through regexpal.com
+
+update: ZAEKAJGC
+
+```
+OOOOOO    OO    OOOOOO  O    O    OO       OOO   OOOO    OOOO 
+     O   O  O   O       O   O    O  O       O   O    O  O    O
+     O  O    O  O       O  O    O    O      O   O       O     
+    O   O    O  O       O O     O    O      O   O       O     
+   O    O    O  OOOOO   OO      O    O      O   O       O     
+  O     OOOOOO  O       OO      OOOOOO      O   O  OOO  O     
+ O      O    O  O       O O     O    O      O   O    O  O     
+O       O    O  O       O  O    O    O  O   O   O    O  O     
+O       O    O  O       O   O   O    O  O   O   O   OO  O    O
+OOOOOO  O    O  OOOOOO  O    O  O    O   OOO     OOO O   OOOO 
+```
+
+strategy ended up being to find the difference between the max and min x and y values of all the stars in the sky, and keep track of the minimum overall distance. the smallest distance is assumed to be our message. the you just let the simulation run for a long time (20.5k "seconds" = ~2hrs 40mins?)

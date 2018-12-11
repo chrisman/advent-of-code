@@ -6,6 +6,7 @@ const filter = (f) => (arr) => arr.filter(f)
 const log = (label) => (x) => { console.log(`${label}:`, JSON.stringify(x)); return x; };
 const map = (fun) => (arr) => arr.map(fun);
 const num = (str) => parseInt(str, 10);
+const range = (a, b) => Array.from({ length: b - a })
 const reduce = (fun, init) => (arr) => arr.reduce(fun, init);
 const split = (str) => (arr) => arr.split(str)
 const sum = (x, y) => x + y
@@ -21,6 +22,7 @@ module.exports = {
   log,
   map,
   num,
+  range,
   reduce,
   split,
   sum,
