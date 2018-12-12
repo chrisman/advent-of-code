@@ -225,3 +225,15 @@ OOOOOO  O    O  OOOOOO  O    O  O    O   OOO     OOO O   OOOO
 ```
 
 strategy ended up being to find the difference between the max and min x and y values of all the stars in the sky, and keep track of the minimum overall distance. the smallest distance is assumed to be our message. the you just let the simulation run for a long time (20.5k "seconds" = ~2hrs 40mins?)
+
+## Day 11
+
+Finished before day 12 came out! I am caught up for the next 30 minutes. I was starting to feel discouraged by having fallen behind.
+
+Part 1 was pretty easy. I was honestly more proud of the little leftpad one-liner I wrote so I could "pretty print" my grid for inspection than I was about anything else that went on here
+
+Part 2 was challenging. As always, it's *mostly* a copy/paste of part 1, with a few changes. There's something horribly ineffecient happening here: is was taking +10 seconds to run each loop, and that number seemed to increase as the size squares approached somewhere around 100.
+
+I took a wild guess and assumed that the largest value would be a square somewhere between 1x1 and 20x20, and it was. So, that's a bit of a cheat. I can't really claim to have solved the puzzle, truth be told, but I have advanced to the next round, fair or not.
+
+I can't remember whether or not I've already said this, and I'm not going to scroll up to see, but I am really starting to feel the limits with these large data sets of my usual approach of just looping over lists. I'm going to need to make use going forward of more effecient data structures like maps and sets and objects. And also more efficient methods of iteration. More simple loops and less recursion. As eloquent as I find recursion and simple list processing, compromises must be made ultimately for effeciency's sake.
