@@ -177,7 +177,7 @@ that's more like it. this one was fun.
 
 Implement a tree! 🌲
 
-but a friggin weird one. After I read the description of the data about four times, I didn't understand the data at all. And then I looked at the actual input data and saw it was nothing but a string of numbers, it was compeletely flat! And then I realized how it worked. The description could have been a little bit better about pointing out that all of the nodes are nested in a flat string.
+but a friggin weird one. After I read the description of the data about four times, I didn't understand the data at all. And then I looked at the actual input data and saw it was nothing but a string of numbers, it was completely flat! And then I realized how it worked. The description could have been a little bit better about pointing out that all of the nodes are nested in a flat string.
 
 anyway. nodes and stuff 👍
 
@@ -232,8 +232,28 @@ Finished before day 12 came out! I am caught up for the next 30 minutes. I was s
 
 Part 1 was pretty easy. I was honestly more proud of the little leftpad one-liner I wrote so I could "pretty print" my grid for inspection than I was about anything else that went on here
 
-Part 2 was challenging. As always, it's *mostly* a copy/paste of part 1, with a few changes. There's something horribly ineffecient happening here: is was taking +10 seconds to run each loop, and that number seemed to increase as the size squares approached somewhere around 100.
+Part 2 was challenging. As always, it's *mostly* a copy/paste of part 1, with a few changes. There's something horribly inefficient happening here: is was taking +10 seconds to run each loop, and that number seemed to increase as the size squares approached somewhere around 100.
 
 I took a wild guess and assumed that the largest value would be a square somewhere between 1x1 and 20x20, and it was. So, that's a bit of a cheat. I can't really claim to have solved the puzzle, truth be told, but I have advanced to the next round, fair or not.
 
-I can't remember whether or not I've already said this, and I'm not going to scroll up to see, but I am really starting to feel the limits with these large data sets of my usual approach of just looping over lists. I'm going to need to make use going forward of more effecient data structures like maps and sets and objects. And also more efficient methods of iteration. More simple loops and less recursion. As eloquent as I find recursion and simple list processing, compromises must be made ultimately for effeciency's sake.
+I can't remember whether or not I've already said this, and I'm not going to scroll up to see, but I am really starting to feel the limits with these large data sets of my usual approach of just looping over lists. I'm going to need to make use going forward of more efficient data structures like maps and sets and objects. And also more efficient methods of iteration. More simple loops and less recursion. As eloquent as I find recursion and simple list processing, compromises must be made ultimately for efficiency's sake.
+
+note to self: https://en.wikipedia.org/wiki/Summed-area_table
+
+## Day 12
+
+Took several days off. back at it again.
+
+This puzzle has a distinct Game Of Life vibe to it.
+
+update: ✅ done
+
+The description of the puzzle was really unclear. And the test data was confusing at first. That was frustrating for a while.
+
+I initially was getting the wrong answer because I didn't right-pad the pots enough.
+
+For part II, I naively tried to run the loop FIFTY BILLION times and that predictably didn't do anything but explode messily all over the place.
+
+So I started looking at the output and noticed that it kind of stabilized over time, resolved itself into one repeating pattern. A pattern which was offset each subsequent generation by the same constant.
+
+So once I had the sum of the stable pattern and the constant, it was some quick maffs to get the final answer.
