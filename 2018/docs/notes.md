@@ -271,3 +271,6 @@ my plan for starting this:
 1. model a minecart: x, y, velocity, direction. turn-at-curve, turn-at-intersection, detect-collison
 
 i used a lot of TDD to explore and define models and behavior.
+
+one thing that functional program means to me is that it can be easier to get started sometimes because you can start by just describing what things are. Okay, this is what a cart (probably) is. This is what a curve is, and this is what an intersection is. And then once things are described pretty well, you can start to describe transformations in the same way. And so once you got your parts of speech in place, then you just verb your nouns. Programming!
+

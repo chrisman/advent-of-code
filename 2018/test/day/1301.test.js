@@ -8,7 +8,7 @@ describe('createCart()', assert => {
     given: 'no arguments',
     should: 'create a default cart',
     actual: JSON.stringify(createCart()),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"-"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'a constructor',
@@ -17,9 +17,8 @@ describe('createCart()', assert => {
       x: 7,
       y: 3,
       orientation: 'v',
-      covering: '|',
     })),
-    expected: '{"x":7,"y":3,"orientation":"v","turn":0,"covering":"|"}',
+    expected: '{"x":7,"y":3,"orientation":"v","turn":0}',
   })
 })
 
@@ -29,37 +28,37 @@ describe('createCart#turnAtIntersection()', assert => {
     given: 'no argument',
     should: 'not turn',
     actual: JSON.stringify(cart.turnAtIntersection()),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":""}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'not an intersection',
     should: 'not turn',
     actual: JSON.stringify(cart.turnAtIntersection('-')),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"-"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'a cart at its first intersection',
-    should: 'turn left and increment its turn value and update its covering',
+    should: 'turn left and increment its turn value',
     actual: JSON.stringify(cart.turnAtIntersection('+')),
-    expected: '{"x":0,"y":0,"orientation":"^","turn":1,"covering":"+"}',
+    expected: '{"x":0,"y":0,"orientation":"^","turn":1}',
   })
   assert({
     given: 'a cart at its 2nd intersection',
-    should: 'go straight and increment its turn value and update its covering',
+    should: 'go straight and increment its turn value',
     actual: JSON.stringify(cart.turnAtIntersection('+')),
-    expected: '{"x":0,"y":0,"orientation":"^","turn":2,"covering":"+"}',
+    expected: '{"x":0,"y":0,"orientation":"^","turn":2}',
   })
   assert({
     given: 'a cart at its 3rd intersection',
-    should: 'go right and reset its turn value to 0 and update its covering',
+    should: 'go right and reset its turn value to 0',
     actual: JSON.stringify(cart.turnAtIntersection('+')),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"+"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'a cart at its 4rd intersection',
-    should: 'start over: turn left & increment turn and update its covering',
+    should: 'start over: turn left & increment turn',
     actual: JSON.stringify(cart.turnAtIntersection('+')),
-    expected: '{"x":0,"y":0,"orientation":"^","turn":1,"covering":"+"}',
+    expected: '{"x":0,"y":0,"orientation":"^","turn":1}',
   })
 })
 
@@ -68,25 +67,25 @@ describe('createCart#applyVelocity()', assert => {
     given: 'an eastbound cart',
     should: 'move east',
     actual: JSON.stringify(createCart().applyVelocity()),
-    expected: '{"x":1,"y":0,"orientation":">","turn":0,"covering":"-"}',
+    expected: '{"x":1,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'an northbound cart',
     should: 'move north',
     actual: JSON.stringify(createCart({ y: 3, orientation: '^' }).applyVelocity()),
-    expected: '{"x":0,"y":2,"orientation":"^","turn":0,"covering":"-"}',
+    expected: '{"x":0,"y":2,"orientation":"^","turn":0}',
   })
   assert({
     given: 'a westbound cart',
     should: 'move west',
     actual: JSON.stringify(createCart({ x: 3, orientation: '<' }).applyVelocity()),
-    expected: '{"x":2,"y":0,"orientation":"<","turn":0,"covering":"-"}',
+    expected: '{"x":2,"y":0,"orientation":"<","turn":0}',
   })
   assert({
     given: 'an southbound cart',
     should: 'move south',
     actual: JSON.stringify(createCart({ orientation: 'v' }).applyVelocity()),
-    expected: '{"x":0,"y":1,"orientation":"v","turn":0,"covering":"-"}',
+    expected: '{"x":0,"y":1,"orientation":"v","turn":0}',
   })
 })
 
@@ -95,61 +94,61 @@ describe('createCart#turnAtCurve()', assert => {
     given: 'no arguments',
     should: 'not turn',
     actual: JSON.stringify(createCart().turnAtCurve()),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":""}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'not a curve',
     should: 'not turn',
     actual: JSON.stringify(createCart().turnAtCurve('-')),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"-"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'eastbound and a \'\\\' curve',
     should: 'turn south',
     actual: JSON.stringify(createCart().turnAtCurve('\\')),
-    expected: '{"x":0,"y":0,"orientation":"v","turn":0,"covering":"\\\\"}',
+    expected: '{"x":0,"y":0,"orientation":"v","turn":0}',
   })
   assert({
     given: 'wbound and a \'\\\' curve',
     should: 'turn north',
     actual: JSON.stringify(createCart({ orientation: '<' }).turnAtCurve('\\')),
-    expected: '{"x":0,"y":0,"orientation":"^","turn":0,"covering":"\\\\"}',
+    expected: '{"x":0,"y":0,"orientation":"^","turn":0}',
   })
   assert({
     given: 'northbound and a \'\\\' curve',
     should: 'turn west',
     actual: JSON.stringify(createCart({ orientation: '^' }).turnAtCurve('\\')),
-    expected: '{"x":0,"y":0,"orientation":"<","turn":0,"covering":"\\\\"}',
+    expected: '{"x":0,"y":0,"orientation":"<","turn":0}',
   })
   assert({
     given: 'southbound and a \'\\\' curve',
     should: 'turn east',
     actual: JSON.stringify(createCart({ orientation: 'v' }).turnAtCurve('\\')),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"\\\\"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'eastbound and a \'/\' curve',
     should: 'turn north',
     actual: JSON.stringify(createCart().turnAtCurve('/')),
-    expected: '{"x":0,"y":0,"orientation":"^","turn":0,"covering":"/"}',
+    expected: '{"x":0,"y":0,"orientation":"^","turn":0}',
   })
   assert({
     given: 'wbound and a \'/\' curve',
     should: 'turn south',
     actual: JSON.stringify(createCart({ orientation: '<' }).turnAtCurve('/')),
-    expected: '{"x":0,"y":0,"orientation":"v","turn":0,"covering":"/"}',
+    expected: '{"x":0,"y":0,"orientation":"v","turn":0}',
   })
   assert({
     given: 'northbound and a \'/\' curve',
     should: 'turn east',
     actual: JSON.stringify(createCart({ orientation: '^' }).turnAtCurve('/')),
-    expected: '{"x":0,"y":0,"orientation":">","turn":0,"covering":"/"}',
+    expected: '{"x":0,"y":0,"orientation":">","turn":0}',
   })
   assert({
     given: 'southbound and a \'/\' curve',
     should: 'turn west',
     actual: JSON.stringify(createCart({ orientation: 'v' }).turnAtCurve('/')),
-    expected: '{"x":0,"y":0,"orientation":"<","turn":0,"covering":"/"}',
+    expected: '{"x":0,"y":0,"orientation":"<","turn":0}',
   })
 })
 
@@ -160,12 +159,11 @@ describe('main()', assert => {
 '^    |',
 '\\----/',
   ]
-  //main(given)
   assert({
     given: 'a closed loop',
     should: 'go around a track',
-    actual: 'bloop',
-    expected: 'bloop',
+    actual: JSON.stringify(main(given)[2]),
+    expected: JSON.stringify([2,0])
   })
 
   given = [
@@ -177,16 +175,14 @@ describe('main()', assert => {
 '   |     |  ' ,
 '   \\-----/ ' ,
   ]
-  main(given)
   assert({
     given: 'a two closed loops',
     should: 'go around the track!',
-    actual: 'bloop',
-    expected: 'bloop',
+    actual: JSON.stringify(main(given)[2]),
+    expected: JSON.stringify([3,2])
   })
 
 
-  /*
   given = [
 '|' ,
 'v' ,
@@ -196,14 +192,12 @@ describe('main()', assert => {
 '^' ,
 '|' ,
   ]
-  main(given)
   assert({
-    given: 'a two closed loops',
-    should: 'go around the track!',
-    actual: 'bloop',
-    expected: 'bloop',
+    given: 'a straight collision course WITH NO WAY OUT!!',
+    should: 'be a collision',
+    actual: JSON.stringify(main(given)[2]),
+    expected: JSON.stringify([0,3]),
   })
-  */
 
 
 // TEST DATA
@@ -216,15 +210,14 @@ describe('main()', assert => {
 '\\-+-/  \\-+--/',
 '  \\------/   ',
   ]
-  main(given)
   assert({
     given: 'the actual test data',
     should: 'go around the track!',
-    actual: 'bloop',
-    expected: '7,3',
+    actual: JSON.stringify(main(given)[2]),
+    expected: JSON.stringify([7,3]),
   })
  
-// the DATA
+// "ACTUAL" DATA
 
   given = [
 '                                /--------------------\\                       /------------------------------------------------<-------\\               ',
@@ -378,12 +371,11 @@ describe('main()', assert => {
 '        \\--------------------------+--------------+/                        \\--+----------/        \\------+---------------------------/               ',
 '                                   \\--------------/                            \\--------------------------/                                           ',
   ]
-  main(given)
   assert({
-    given: 'the actual test data',
+    given: 'the actual actual data data',
     should: 'go around the track!',
-    actual: 'bloop',
-    expected: '7,3',
+    actual: JSON.stringify(main(given)[2]),
+    expected: JSON.stringify([33,69])
   })
 })
 

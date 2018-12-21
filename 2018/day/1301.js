@@ -1,5 +1,6 @@
 const { compose } = require('../utils')
 
+// velocity and relative directions of each direction
 const dirs = {
   '>': {
     velocity: [1, 0],  // east  = +x
@@ -27,6 +28,7 @@ const dirs = {
   },
 }
 
+// how directions change when encountering a curve
 const curves = {
   '\\': {
     '>': 'v', // turn right
@@ -42,7 +44,8 @@ const curves = {
   },
 }
 
-const turns = {
+// the order of turns at intersections
+const intersectionTurns = {
   0: 'left',
   1: 'straight',
   2: 'right',
@@ -55,15 +58,13 @@ const createCart = ({
   turn = 0,
   x = 0,
   y = 0,
-  covering = '-',
 } = {}) => ({
-  x, y, orientation, turn, covering,
+  x, y, orientation, turn,
   turnAtIntersection(intersection = '') {
     if (intersection === '+') {
-      this.orientation = dirs[this.orientation][turns[this.turn]]
+      this.orientation = dirs[this.orientation][intersectionTurns[this.turn]]
       this.turn = (this.turn === 2) ? 0 : this.turn + 1
     }
-    this.covering = intersection
     return this
   },
   turnAtCurve(curve = '') {
@@ -72,7 +73,6 @@ const createCart = ({
         ? curves[curve][this.orientation]
         : this.orientation
     }
-    this.covering = curve
     return this
   },
   applyVelocity() {
@@ -82,11 +82,13 @@ const createCart = ({
     return this
   },
   checkCollision(cars) {
+    // count up all the cars by location
     const counts = cars.reduce((acc, cur) => {
       acc[`${cur.x},${cur.y}`] = (acc[`${cur.x},${cur.y}`] || 0) + 1
       return acc
     }, {})
 
+    // if there's more than one car at a location, that's a collision
     const collision = (Object.values(counts).some(count => count > 1))
 
     return collision
@@ -94,6 +96,7 @@ const createCart = ({
 })
 
 
+// returns a map with no cars, and a list of cars
 const getCarsAndMap = (arr) => {
   const w  = arr[0].length
   const h  = arr.length
@@ -111,7 +114,7 @@ const getCarsAndMap = (arr) => {
     for(let x = 0; x < w; x++) {
       let i = arr[y][x]
       if (Object.keys(carTracks).includes(i)) {
-        const car = createCart({ x, y, orientation: i, covering: carTracks[i] })
+        const car = createCart({ x, y, orientation: i })
         cars.push(car)
         map[y][x] = carTracks[i]
       } else {
@@ -123,6 +126,7 @@ const getCarsAndMap = (arr) => {
   return [ map, cars ]
 }
 
+// helper printing function
 const showMap = ([ map, cars ]) => {
   map.forEach(line => {
     console.log(line.join(''))
@@ -130,13 +134,15 @@ const showMap = ([ map, cars ]) => {
   return [ map, cars ]
 }
 
+// helper printing function
 const showCars = ([ map, cars ]) => {
-  cars.forEach(({ x, y, orientation, covering }, idx) => {
-    console.log(idx, `[ ${x}, ${y} ]`, orientation, `on ${covering}`)
+  cars.forEach(({ x, y, orientation }, idx) => {
+    console.log(idx, `[ ${x}, ${y} ]`, orientation)
   })
   return [ map, cars ]
 }
 
+// helper printing function
 const showMapWithCars = ([ map, cars ]) => {
   const carMap = new Map()
   cars.forEach(car => {
@@ -163,9 +169,9 @@ const showMapWithCars = ([ map, cars ]) => {
 }
 
 const moveCars = ([ map, cars ]) => {
-  let collision = false
+  let collision = []
 
-  while(!collision) {
+  while(collision.length === 0) {
     cars
       .sort((a, b) => (a.y < b.y)
         ? -1
@@ -176,17 +182,16 @@ const moveCars = ([ map, cars ]) => {
       .forEach(car => {
         car.applyVelocity()
         if (car.checkCollision(cars)) {
-          console.log('HOLY FUCKING SHIT!!!', car.x, car.y)
           cars = cars.filter(c => c.x !== car.x && c.y !== car.y)
           map[car.y][car.x] = 'x'
-          collision = true
+          collision = [car.x, car.y]
         }
         car.turnAtCurve(map[car.y][car.x])
         car.turnAtIntersection(map[car.y][car.x])
       })
   }
 
-  return [ map, cars ]
+  return [ map, cars, collision ]
 }
 
 const main = compose(
