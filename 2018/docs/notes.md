@@ -257,3 +257,17 @@ For part II, I naively tried to run the loop FIFTY BILLION times and that predic
 So I started looking at the output and noticed that it kind of stabilized over time, resolved itself into one repeating pattern. A pattern which was offset each subsequent generation by the same constant.
 
 So once I had the sum of the stable pattern and the constant, it was some quick maffs to get the final answer.
+
+## Day 13
+
+### Part 1
+
+me reading this description: oh boy
+
+me looking at the actual data: wtf
+
+my plan for starting this:
+
+1. model a minecart: x, y, velocity, direction. turn-at-curve, turn-at-intersection, detect-collison
+
+i used a lot of TDD to explore and define models and behavior.
