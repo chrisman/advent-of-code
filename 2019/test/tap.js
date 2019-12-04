@@ -1,4 +1,5 @@
 const out = str => { console.log(str) }
+const stringify = JSON.stringify
 
 const createDescribe = () => {
   let counter = 0
@@ -7,13 +8,13 @@ const createDescribe = () => {
     out(`# ${label}`);
     const assert = ({ given, skip = false, should, actual, expected }) => {
       counter++;
-      if (actual === expected) {
+      if (stringify(actual) === stringify(expected)) {
         out(`ok ${counter} Given ${given}: should ${should}`)
       } else {
-        out(`not ok ${counter} Given ${given}: should ${should}`)
+        out(`not ok ${counter} Given ${stringify(given)}, it should ${should}`)
         out(`  ---`)
-        out(`  expected: ${expected}`);
-        out(`  actual:   ${actual}`);
+        out(`  expected: ${stringify(expected)}`);
+        out(`  actual:   ${stringify(actual)}`);
         out(`  ...`)
       }
     }

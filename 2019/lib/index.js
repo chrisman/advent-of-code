@@ -1,9 +1,9 @@
-const compose = require('./compose')
-const log = require('./log')
-const sumlist = require('./sumlist')
-
 module.exports = {
-  compose,
-  log,
-  sumlist,
+  compose: require('./compose'),
+  filter: require('./filter'),
+  frequency: require('./frequency'),
+  log: require('./log'),
+  map: require('./map'),
+  range: require('./range'),
+  sumlist: require('./sumlist'),
 }

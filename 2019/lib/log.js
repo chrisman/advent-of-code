@@ -1,1 +1,1 @@
-module.exports = s => x => { console.log(`${s}: ${x}`); return x; }
+module.exports = s => x => { console.log(`${s}: ${JSON.stringify(x)}`); return x; }
