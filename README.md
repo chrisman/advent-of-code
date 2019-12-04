@@ -1,6 +1,6 @@
-# advent of code ❅🎄💻
+# advent of code 🎅💻
 
-here's some solutions to the advent of code puzzles
+here's some solutions to and notes about the advent of code puzzles
 
 ## resources
 
