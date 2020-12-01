@@ -1,6 +1,6 @@
 import { main } from "../src/0101.ts";
 import { assertEquals } from "./deps.ts";
-import { mock, data } from "../data/0101.ts";
+import { data, mock } from "../data/0101.ts";
 
 Deno.test({
   name: "hello world",
@@ -11,7 +11,7 @@ Deno.test({
 });
 
 Deno.test({
-  name: 'works with mock data',
+  name: "works with mock data",
   fn(): void {
     const expected = 514579;
     const actual = main(mock);
@@ -20,7 +20,7 @@ Deno.test({
 });
 
 Deno.test({
-  name: 'works with real data',
+  name: "works with real data",
   fn(): void {
     const expected = 997899;
     const actual = main(data);
