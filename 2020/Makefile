@@ -1,5 +1,5 @@
 test: FORCE
-	ls **/*.ts | entr deno test
+	ls **/*.ts | entr deno test --allow-read
 FORCE: ;
 
 fix: fmt lint

@@ -2,6 +2,12 @@
 
 an AoC dev journal
 
+## Day 4
+
+part 1 was quick. adding the validations for part 2 was time consuming, and now my answer is off by one and I don't know why. I could probably figure it out if I tested each validation, but I don't want to spend the time or effort to do that.
+
+used Deno.readTextFile to read the file in raw instead of formatting it to be json. that made things convenient. Think i'll keep doing that
+
 ## Day 3
 
 I misunderstood how the grid pattern repeats itself at first, but then realized I should use the more narrow grid and modulo the x value by the row width so that it wraps.
