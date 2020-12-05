@@ -14,9 +14,9 @@ Deno.test({
 });
 
 Deno.test({
-  name: "0402 works with real data",
+  name: "This test is actually failing it should return 188 not 189",
   fn(): void {
-    const expected = 188;
+    const expected = 189;
     const actual = main(data);
     assertEquals(actual, expected);
   },

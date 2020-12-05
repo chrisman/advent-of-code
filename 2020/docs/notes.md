@@ -2,6 +2,12 @@
 
 an AoC dev journal
 
+## Day 5
+
+Saturday morning doing day 5. Part 1 was fine and fun. I like doing data transformations.
+
+Part 2 had a lot of extra cruft and red herrings in the description I think, so I didn't understand what it was asking for at first. But when I figured it out, a quick for loop finished it off.
+
 ## Day 4
 
 part 1 was quick. adding the validations for part 2 was time consuming, and now my answer is off by one and I don't know why. I could probably figure it out if I tested each validation, but I don't want to spend the time or effort to do that.
