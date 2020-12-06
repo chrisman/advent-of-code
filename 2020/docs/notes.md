@@ -2,6 +2,14 @@
 
 an AoC dev journal
 
+## Day 6
+
+Much easier than yesterday. Part II slowed me down a little bit. I really don't like my stringToAnswer function that much because it's kind of ugly. started naming some functions[^1] and exporting them out to `/lib` for reuse
+
+Ben pointed out to me some of the red herrings from Day 5: you can map FBLR to 0101 and just `parseInt(row, 2) * 8 + parseInt(col, 2)`. I guess I don't know enough about binary math to have seen that initially. Maybe I'll go back and rewrite it at some point haha
+
+[^1]: I started skimming through https://github.com/getify/Functional-Light-JS at Cody's suggestion, and one thing that stood out to me is that this guy really does not like anonymous functions or fat arrow functions. The reason is that named functions are more readable because they create a context, and they improve the stack trace if your program crashes. I agree with these points. So I've been trying to do better about not just using anonymous functions all the time. 
+
 ## Day 5
 
 Saturday morning doing day 5. Part 1 was fine and fun. I like doing data transformations.
